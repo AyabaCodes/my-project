@@ -16,6 +16,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/auth", authRoutes);
 app.use("/api/blog", blogRoutes);
 
+// Root route to welcome users
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to the Blog API!");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is listening on PORT:${PORT}`);
 });
